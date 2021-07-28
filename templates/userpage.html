@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <style>
+        img{
+            width: 200px;
+            height: 200px;
+            border: 2px solid white;
+            border-radius: 100px;
+        }
+    </style>
+    <script>
+        function dat(){
+	var now = new Date();
+    var hr= now.getHours()
+    var min= now.getMinutes()
+    var sec= now.getSeconds()
+
+    if (hr<12)
+	document.getElementById('dt').innerHTML= "Good Morning!"
+    else if(hr>=12 && hr<16)
+    document.getElementById('dt').innerHTML= "Good Afternoon!"
+    else if(hr>=16 && hr<20)
+    document.getElementById('dt').innerHTML= "Good Evening!"
+    else
+    document.getElementById('dt').innerHTML= "Good Night!"
+    setTimeout("dat()",100)
+        }
+
+    </script>
+</head>
+<body>
+
+    
+    {% if obj.username != None %}
+    <h1>Hi....{{obj.username}} <h1 id="dt"></h1> </h1>
+    {% else %}
+    <h1>Hi....{{obj.email}} Welcome....</h1>
+    {% endif %}
+    <h3>Hi....{{obj.email}} Welcome....</h3>
+    <h6>Last login is {{obj.last_login}}</h6>
+
+    {% if obj.profile_picture.url != '/media/null' %}
+    Profile Picture is 
+    <img  id="img" src="{{obj.profile_picture.url}}" alt="No Image Found"/>
+    {% endif %}
+    
+    <p><a href="/logout">Lets LogoUt</a></p>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static '/styles/index-css.css' %}">
+</head>
+<body>
+    <div class="head-panel">
+        <nav>
+            <li><a href="/">Home</a></li> |
+            <li><a href="/up" >Upload</a></li> |
+            <li><a href="#">About</a></li> |
+            <li><a href="#">Contact Me</a></li> |
+            <li><a href="#">All Apps</a></li>
+        </nav>
+    </div>
+    <h2>SignUp Form</h2>
+    <form action="register/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+First Name:<input type="text" name="first_name" value=""><br>
+Last Name:<input type="text" name="last_name" value=""><br>
+UseName:<input type="text" name="uname" value=""><br>
+Email:<input type="email" name="email" value=""><br>
+Password:<input type="password" name="pwd" value=""><br>
+DOB: <input type="date" name="dob"><br>
+mobile: <input type="number" name='phone'>
+Prifile_Image:<input type="file" name="pp" value="choose image"><br>
+<input type="submit" name="" value="Submit">
+
+    </form>
+</body>
+</html>

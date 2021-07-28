@@ -1,0 +1,29 @@
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images</title>
+    <link rel="stylesheet" href="{% static '/styles/index-css.css' %}">
+
+</head>
+<body>
+    <div class="head-panel">
+        <nav>
+            <li><a href="/">Home</a></li> |
+            <li><a href="/up" >Upload</a></li> |
+            <li><a href="#">About</a></li> |
+            <li><a href="#">Contact Me</a></li> |
+            <li><a href="#">All Apps</a></li>
+        </nav>
+    </div>
+    <h2>Upload Ur Images Here</h2>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>

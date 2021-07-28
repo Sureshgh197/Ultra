@@ -1,0 +1,119 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/styles/index-css.css' %}">
+
+
+<!-- Start WOWSlider.com HEAD section -->
+<link rel="stylesheet" type="text/css" href="{% static 'styles/engine1/style.css' %}" />
+<script type="text/javascript" src="{% static 'styles/engine1/jquery.js' %}"></script>
+<!-- End WOWSlider.com HEAD section -->
+
+<script>
+    function dat(){
+var now = new Date();
+var hr= now.getHours();
+var min= now.getMinutes();
+var sec= now.getSeconds();
+var time=hr+" :"+min+" :"+sec;
+
+if (hr<12)
+document.getElementById('dt').innerHTML= "Good Morning!"+" "+time
+else if(hr>=12 && hr<16)
+document.getElementById('dt').innerHTML= "Good Afternoon!"+" "+time
+else if(hr>=16 && hr<20)
+document.getElementById('dt').innerHTML= "Good Evening!"+" "+time
+else
+document.getElementById('dt').innerHTML= "Good Night!"+" "+time
+
+setTimeout("dat()",100)}
+
+</script>
+
+    <title>Basic Page</title>
+       
+</head>
+<body onload="dat()">
+    <header>
+        <div class="container">
+            <div class="logo-cont"><img src="{% static '/images/tree-200795_1920.jpg' %}"></div>
+            <div class="title-cont">Title Goes here....</div>
+            <div class="accounts-cont">
+                <button class="acb">Login</button>
+                <button class="acb">Register</button>
+            </div>
+            <div id="dt"></div>
+        </div>
+        <hr>
+    </header>
+
+    <div class="head-panel">
+        <nav>
+            <li><a href="/">Home</a></li> |
+            <li><a href="/up" >Upload</a></li> |
+            <li><a href="#">About</a></li> |
+            <li><a href="#">Contact Me</a></li> |
+            <li><a href="#">All Apps</a></li> |
+            <li><a href="/acn">Register</a></li> |
+            <li><a href="/login">Login</a></li>
+        </nav>
+    </div>
+
+        <!-- Start WOWSlider.com BODY section -->
+<!-- <div id="wowslider-container1">
+    <div class="ws_images"><ul>
+            <li><img src="{% static 'styles/data1/images/a2ee44578fb3f45609a84dac88d3d10b.jpg' %}" alt="" title="" id="wows1_0"/></li>
+            <li><img src="{% static 'styles/data1/images/a321dc4b26e72185c1c6749f32579399.jpg' %}" alt="a321dc4b26e72185c1c6749f32579399" title="a321dc4b26e72185c1c6749f32579399" id="wows1_1"/></li>
+            <li><img src="{% static 'styles/data1/images/ashimdsilvaweyamle9fdmunsplash.jpg' %}" alt="ashim-d-silva-WeYamle9fDM-unsplash" title="ashim-d-silva-WeYamle9fDM-unsplash" id="wows1_2"/></li>
+            <li><img src="{% static 'styles/data1/images/bcace1b6ce9c0b61a13d7c285cff7106.png' %}" alt="bcace1b6ce9c0b61a13d7c285cff7106" title="bcace1b6ce9c0b61a13d7c285cff7106" id="wows1_3"/></li>
+            <li><img src="{% static 'styles/data1/images/binarycode4437421_1920.jpg' %}" alt="wow slider" title="binary-code-4437421_1920" id="wows1_4"/></li>
+            <li><img src="{% static 'styles/data1/images/blm.jpg' %}" alt="blm" title="blm" id="wows1_5"/></li>
+        </ul></div>
+        
+    <div class="ws_shadow"></div>
+    </div> -->
+
+<br>
+<hr>
+<br>
+      <!-- <div id="wowslider-container1">
+        <div class="ws_images"><ul>
+                <li><img src="{% static 'styles/data1/images/a2ee44578fb3f45609a84dac88d3d10b.jpg' %}" alt="" title="" id="wows1_0"/></li>
+                <li><img src="{% static 'styles/data1/images/a321dc4b26e72185c1c6749f32579399.jpg' %}" alt="a321dc4b26e72185c1c6749f32579399" title="a321dc4b26e72185c1c6749f32579399" id="wows1_1"/></li>
+                <li><img src="{% static 'styles/data1/images/ashimdsilvaweyamle9fdmunsplash.jpg' %}" alt="ashim-d-silva-WeYamle9fDM-unsplash" title="ashim-d-silva-WeYamle9fDM-unsplash" id="wows1_2"/></li>
+                <li><img src="{% static 'styles/data1/images/bcace1b6ce9c0b61a13d7c285cff7106.png' %}" alt="bcace1b6ce9c0b61a13d7c285cff7106" title="bcace1b6ce9c0b61a13d7c285cff7106" id="wows1_3"/></li>
+                <li><img src="{% static 'styles/data1/images/binarycode4437421_1920.jpg' %}" alt="wow slider" title="binary-code-4437421_1920" id="wows1_4"/></li>
+                <li><img src="{% static 'styles/data1/images/blm.jpg' %}" alt="blm" title="blm" id="wows1_5"/></li>
+            </ul></div>
+            
+        <div class="ws_shadow"></div>
+        </div>   -->
+        <div id="wowslider-container1">
+            <div class="ws_images"><ul>
+                {% for i in slides %}
+                <li><img src="{{i.imag.url}}" alt="no-image-found" id="wows1_{{i.id}}"/></li>
+                {% endfor %}
+                </ul>
+            </div>            
+            <div class="ws_shadow"></div>
+            </div>    
+
+
+
+
+    <!-------Fetch Images from Databases------>
+
+
+    
+
+    <!-------Fetch Images from Databases------>
+
+    <script type="text/javascript" src="{% static 'styles/engine1/wowslider.js' %}"></script>
+    <script type="text/javascript" src="{% static 'styles/engine1/script.js' %}"></script>
+   
+</body>
+</html>
