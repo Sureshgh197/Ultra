@@ -2,8 +2,8 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse,HttpResponseRedirect
 from . models import AppUsers,UserManager,UImages
 from . forms import ImageUploadForm,LoginForm
-from django.contrib.auth import login
-from home.backends import MyBackend
+from django.contrib.auth import login,authenticate
+#from home.backends import MyBackend
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.core.files.storage import FileSystemStorage
@@ -83,7 +83,7 @@ def custom_login(request):
             email=request.POST.get('email')
             password = request.POST.get('password')
        
-        user=MyBackend.authenticate(email=email,password=password)
+        user=authenticate(email=email,password=password)
                 
         if user is not None:
             auth.login(request,user)

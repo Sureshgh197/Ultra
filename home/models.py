@@ -1,5 +1,5 @@
 from django.db import models
-from home.backends import MyBackend
+#from home.backends import MyBackend
 from PIL import Image
 from io import BytesIO
 from django.core.files.uploadedfile import InMemoryUploadedFile
@@ -84,7 +84,7 @@ class AppUsers(AbstractBaseUser):
     admin                  =models.BooleanField(default=False) # a superuser
 
     # notice the absence of a "Password field", that is built in.
-    backend=MyBackend
+    #backend=MyBackend
     
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
