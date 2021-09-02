@@ -20,7 +20,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('img/img2pdf',include('img_2_pdf.urls')),
     path('',include('home.urls')),
+    
+    
     
 ]
 

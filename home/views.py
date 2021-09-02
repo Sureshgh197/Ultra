@@ -109,7 +109,7 @@ def logout(request):
 ##############################################################
 ##############################################################
 
-@login_required(login_url='/login/')
+#@login_required(login_url='/login/')
 def profile(request,uname):
    
     obj=AppUsers.objects.get(username=uname)
